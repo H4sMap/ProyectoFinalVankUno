@@ -11,7 +11,6 @@ fetch('./config.json')
     .then(config => {
         geminiApiKey = config.geminiApiKey;
         geminiApiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${geminiApiKey}`;
-        console.log('Clave API cargada correctamente:', geminiApiKey);
     })
     .catch(error => {
         console.error('Error al cargar el archivo JSON:', error);

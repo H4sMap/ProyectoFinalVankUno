@@ -81,7 +81,6 @@ class User {
     }
 }
 
-// Asegúrate de que el DOM esté completamente cargado antes de agregar el evento
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('register-form').addEventListener('submit', function(event) {
         event.preventDefault();

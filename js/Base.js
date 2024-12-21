@@ -176,7 +176,7 @@ function showSection(section, prefilledUser = '') {
         fetchTransfiya();
     }
 }
-
+//Graficas
 function initializeCryptoChart() {
     const ctx = document.getElementById('cryptoChart').getContext('2d');
     window.cryptoChart = new Chart(ctx, {
@@ -215,6 +215,7 @@ function initializeCryptoChart() {
     });
 }
 
+//Api cripto
 function fetchCryptoStats() {
     fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false')
         .then(response => response.json())
@@ -231,6 +232,7 @@ function fetchCryptoStats() {
         .catch(error => console.error('Error fetching crypto stats:', error));
 }
 
+//Historial
 function fetchHistory() {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     if (currentUser && currentUser.history) {
@@ -250,6 +252,7 @@ function fetchHistory() {
     }
 }
 
+//Transfi
 function fetchTransfiya() {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     if (currentUser && currentUser.transfiya) {
@@ -259,7 +262,7 @@ function fetchTransfiya() {
             listItem.innerHTML = `
                 <span>Usuario:</span> ${usuario}
             `;
-            listItem.style.cursor = 'pointer'; // Cambia el cursor a una mano
+            listItem.style.cursor = 'pointer';
             listItem.addEventListener('click', function () {
                 showSection('transferir', usuario);
             });

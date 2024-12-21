@@ -10,7 +10,6 @@ class User {
     }
 }
 
-// Asegúrate de que el DOM esté completamente cargado antes de agregar el evento
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('login-form').addEventListener('submit', function(event) {
         event.preventDefault();
@@ -21,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const user = User.authenticate(username, password);
         if (user) {
             alert('Inicio de sesión exitoso');
-            localStorage.setItem('currentUser', JSON.stringify(user)); // Guardar el usuario autenticado
+            localStorage.setItem('currentUser', JSON.stringify(user));
             window.location.href = 'base.html';
         } else {
             alert('Usuario o contraseña incorrectos');
