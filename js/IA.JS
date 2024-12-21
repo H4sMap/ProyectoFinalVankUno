@@ -1,4 +1,5 @@
-const geminiApiKey = 'AIzaSyB_G3EBLQkEXnlDAcZ3Vv5UkhiAKWjYVKg';
+require('dotenv').config(); 
+const geminiApiKey = process.env.GEMINI_API_KEY;
 const geminiApiUrl = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=' + geminiApiKey;
 
 const currentUser = JSON.parse(localStorage.getItem('currentUser'));
