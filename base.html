@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monedero VANK - Inicio</title>
+    <link rel="stylesheet" href="css/styleBase.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Agregar Chart.js -->
+</head>
+
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="user-info">
+                <img src="https://th.bing.com/th/id/R.8e2c571ff125b3531705198a15d3103c?rik=gzhbzBpXBa%2bxMA&riu=http%3a%2f%2fpluspng.com%2fimg-png%2fuser-png-icon-big-image-png-2240.png&ehk=VeWsrun%2fvDy5QDv2Z6Xm8XnIMXyeaz2fhR3AgxlvxAc%3d&risl=&pid=ImgRaw&r=0"
+                    alt="Perfil de usuario" class="user-icon">
+                <h2>Información del Usuario</h2>
+                <p><strong>Nombre:</strong><br><span id="user-name"></span></p>
+                <p><strong>ID:</strong><br><span id="user-id"></span></p>
+                <p><strong>Correo:</strong><br><span id="user-email"></span></p>
+                <p><strong>Monedero:</strong><br><span id="user-wallet"></span></p>
+                <button id="logout-button">Desconectar</button>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="navbar">
+                <a href="#transferir" id="transferir-link">Transferir</a>
+                <a href="#estadisticas" id="estadisticas-link">Estadísticas</a>
+                <a href="#historial" id="historial-link">Historial</a>
+                <a href="#transfiya" id="transfiya-link">Transfi Ya</a>
+            </div>
+            <div class="content" id="content">
+                <!-- Aquí irá el contenido de los apartados -->
+            </div>
+        </div>
+        <div class="chat">
+            <h2>Chat con VANKIA</h2>
+            <div class="chat-box" id="chat-box">
+                <!-- Aquí irá el chat con IA -->
+            </div>
+            <div class="chat-input">
+                <input type="text" id="chat-input" placeholder="Escribe tu mensaje...">
+                <button id="send-button">Enviar</button>
+            </div>
+        </div>
+    </div>
+    <script src="js/Base.js"></script>
+    <script src="js/IA.JS"></script>
+</body>
+
+</html>

@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=JejuMyeongjo&display=swap');
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.login-container, .register-container {
+    display: flex;
+    width: 800px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-left, .register-left {
+    background-color: #fff;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.login-right, .register-right {
+    background: url('https://www.gratistodo.com/wp-content/uploads/2022/02/Amarillo-wallpapers-17.jpg') no-repeat center center;
+    background-size: cover;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    position: relative;
+}
+
+.chip-icon {
+    width: 50px;
+    height: 50px;
+    background: url('https://th.bing.com/th/id/OIP.8GE1xYbj3rV36HUEcn-erQHaHS?rs=1&pid=ImgDetMain') no-repeat center center;
+    background-size: contain;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: transparent;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+input {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.forgot-password {
+    color: #ffcc00;
+    text-decoration: none;
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #ffcc00;
+    color: black;
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #e6b800;
+}
+
+p {
+    margin-top: 20px;
+}
+
+p a {
+    color: #ffcc00;
+    text-decoration: none;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.5em;
+    color: #fff;
+    text-align: center;
+    font-family: 'JejuMyeongjo', serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    color: black;
+}
