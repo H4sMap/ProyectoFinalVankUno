@@ -1,7 +1,7 @@
 let geminiApiKey = '';
 let geminiApiUrl = '';
 
-fetch('./config.json')
+fetch('/config.json')
     .then(response => {
         if (!response.ok) {
             throw new Error('No se pudo cargar el archivo JSON.');
