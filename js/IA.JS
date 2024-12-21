@@ -1,9 +1,24 @@
-require('dotenv').config(); 
-const geminiApiKey = process.env.GEMINI_API_KEY;
-const geminiApiUrl = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=' + geminiApiKey;
+let geminiApiKey = '';
+let geminiApiUrl = '';
+
+fetch('./config.json')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('No se pudo cargar el archivo JSON.');
+        }
+        return response.json();
+    })
+    .then(config => {
+        geminiApiKey = config.geminiApiKey;
+        geminiApiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${geminiApiKey}`;
+        console.log('Clave API cargada correctamente:', geminiApiKey);
+    })
+    .catch(error => {
+        console.error('Error al cargar el archivo JSON:', error);
+    });
 
 const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-const userName = currentUser.name;
+const userName = currentUser ? currentUser.name : 'Usuario';
 const botName = 'VANKIA';
 
 function isRelevant(message) {

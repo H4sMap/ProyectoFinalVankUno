@@ -76,7 +76,7 @@ function showSection(section, prefilledUser = '') {
         `;
         document.getElementById('transferir-link').classList.add('active');
 
-        document.querySelector('.transfer-form').addEventListener('submit', function(event) {
+        document.querySelector('.transfer-form').addEventListener('submit', function (event) {
             event.preventDefault();
             const usuario = document.getElementById('usuario').value;
             const valor = parseFloat(document.getElementById('valor').value);
@@ -98,7 +98,7 @@ function showSection(section, prefilledUser = '') {
 
             const recipientUser = users[recipientUserIndex];
 
-            if (currentUser.monedero >= valor) {
+            if (currentUser.monedero >= valor && valor > 0) {
                 currentUser.monedero -= valor;
                 recipientUser.monedero += valor;
 
@@ -145,6 +145,8 @@ function showSection(section, prefilledUser = '') {
                 document.getElementById('user-wallet').textContent = `$${currentUser.monedero}`;
 
                 alert(`Transferencia de $${valor} a ${usuario} realizada con éxito.`);
+            } else if (valor < 0) {
+                alert('Imposible transferir negativos');
             } else {
                 alert('Saldo insuficiente en el monedero.');
             }
@@ -194,7 +196,7 @@ function initializeCryptoChart() {
                 y: {
                     beginAtZero: true,
                     ticks: {
-                        callback: function(value) {
+                        callback: function (value) {
                             return '$' + value;
                         }
                     }
@@ -203,7 +205,7 @@ function initializeCryptoChart() {
             plugins: {
                 tooltip: {
                     callbacks: {
-                        label: function(context) {
+                        label: function (context) {
                             return context.dataset.label + ': $' + context.raw;
                         }
                     }
@@ -233,10 +235,10 @@ function fetchHistory() {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     if (currentUser && currentUser.history) {
         const historyList = document.getElementById('history-list');
-        
+
         // Ordenar el historial del más reciente al más antiguo
         currentUser.history.sort((a, b) => new Date(b.date) - new Date(a.date));
-        
+
         historyList.innerHTML = ''; // Limpiar la lista antes de llenarla nuevamente
         currentUser.history.reverse().forEach(item => {
             const listItem = document.createElement('li');
@@ -258,7 +260,7 @@ function fetchTransfiya() {
                 <span>Usuario:</span> ${usuario}
             `;
             listItem.style.cursor = 'pointer'; // Cambia el cursor a una mano
-            listItem.addEventListener('click', function() {
+            listItem.addEventListener('click', function () {
                 showSection('transferir', usuario);
             });
             transfiyaList.appendChild(listItem);
