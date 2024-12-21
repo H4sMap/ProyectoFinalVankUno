@@ -7,9 +7,9 @@ const botName = 'VANKIA';
 
 function isRelevant(message) {
     const relevantKeywords = [
-        'banco', 'dinero', 'moneda', 'criptomonedas', 'finanzas', 'transacciones', 'wallet', 
-        'tarjetas', 'pagos', 'inversiones', 'bitcoin', 'ethereum', 'lido staked ether', 'bnb', 
-        'solana', 'xrp', 'usdc', 'tether', 'cardano', 'dogecoin', 'dolar', 'pesos'
+        'hola', 'banco', 'dinero', 'moneda', 'criptomonedas', 'finanzas', 'transacciones', 'wallet',
+        'tarjetas', 'pagos', 'inversiones', 'bitcoin', 'ethereum', 'lido staked ether', 'bnb',
+        'solana', 'xrp', 'usdc', 'tether', 'cardano', 'dogecoin', 'dolar', 'pesos', 'ahorro'
     ];
     const lowerCaseMessage = message.toLowerCase();
     return relevantKeywords.some(keyword => lowerCaseMessage.includes(keyword));
@@ -18,7 +18,7 @@ function isRelevant(message) {
 function sendMessageToBot(message) {
     const data = {
         contents: [{
-            parts: [{"text": message}]
+            parts: [{ "text": message }]
         }]
     };
 
@@ -29,31 +29,31 @@ function sendMessageToBot(message) {
         },
         body: JSON.stringify(data),
     })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
-    })
-    .then(data => {
-        if (data.candidates && data.candidates.length > 0 && data.candidates[0].content && data.candidates[0].content.parts && data.candidates[0].content.parts.length > 0) {
-            const botResponse = data.candidates[0].content.parts[0].text;
-            displayMessage(botResponse, 'bot');
-        } else {
-            throw new Error('Invalid response format');
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        displayMessage('Lo siento, hubo un problema con la solicitud.', 'bot');
-    });
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.candidates && data.candidates.length > 0 && data.candidates[0].content && data.candidates[0].content.parts && data.candidates[0].content.parts.length > 0) {
+                const botResponse = data.candidates[0].content.parts[0].text;
+                displayMessage(botResponse, 'bot');
+            } else {
+                throw new Error('Invalid response format');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            displayMessage('Lo siento, hubo un problema con la solicitud.', 'bot');
+        });
 }
 
 function displayMessage(message, sender) {
     const chatBox = document.getElementById('chat-box');
     const messageElement = document.createElement('div');
     messageElement.className = sender === 'bot' ? 'bot-message' : 'user-message';
-    
+
     if (sender === 'bot') {
         messageElement.innerHTML = `<strong>${botName}:</strong> ${message}`;
     } else {
