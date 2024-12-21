@@ -109,7 +109,7 @@ body {
     border-radius: 5px;
     padding: 10px;
     overflow-y: scroll;
-    width: 100%; /* Ajuste de ancho al 100% */
+    width: 100%;
     background-color: #f9f9f9;
 }
 
@@ -141,20 +141,20 @@ body {
 
 .bot-message {
     color: #fff;
-    background-color: #007bff; /* Azul para los mensajes del bot */
+    background-color: #007bff;
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 5px;
-    text-align: left; /* Alineación a la izquierda */
+    text-align: left;
 }
 
 .user-message {
     color: #fff;
-    background-color: #28a745; /* Verde para los mensajes del usuario */
+    background-color: #28a745;
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 5px;
-    text-align: right; /* Alineación a la derecha */
+    text-align: right;
 }
 
 .transfer-form {
